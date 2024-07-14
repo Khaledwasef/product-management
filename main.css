@@ -125,6 +125,13 @@ td {
         margin: auto;
     }
 
+    table .to-veiw {
+        font-size: 5px;
+        border-radius: 2px;
+        padding: 1px;
+    }
+    
+
 
     #total {
         margin-bottom: 10px;
