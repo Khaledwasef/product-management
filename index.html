@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product management</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="crud">
+        <div class="head">
+            <h2>
+                hello,
+            </h2>
+            <p>product management system</p>
+        </div>
+        <div class="inputs">
+            <input type="text" id="title" placeholder="title">
+            <div class="price" id="prices">
+                <input onkeyup="getTotal()" type="number" name="" id="taxes" placeholder="taxes">
+                <input onkeyup="getTotal()"  type="number" name="" id="price" placeholder="price">
+                <input onkeyup="getTotal()" type="number" name="" id="ads" placeholder="ads">
+                <input onkeyup="getTotal()" type="number" name="" id="discount" placeholder="discount">
+                <small id="total"></small>
+            </div>
+            <input type="number" placeholder="count" id="count">
+            <input type="text" placeholder="category" id="category">
+            <button id="submit">create</button>
+        </div>
+        <div class="outputs">
+            <div class="search">
+                <input type="text" name="" id="search" placeholder="search" onkeyup="searchDate(this.value)">
+                <div class="btn-search">
+                    <button id="searchTitle" onclick="searchProduct(this.id)">search by title</button>
+                    <button id="searchcategory" onclick="searchProduct(this.id)">search by category</button>
+                </div>
+                <button id="deleteAll" onclick="deleteAll()" style="display: none;">delete all</button>
+            </div>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>taxes</th>
+                    <th>ads</th>
+                    <th>discount</th>
+                    <th>total</th>
+                    <th>category</th>
+                    <th>update</th>
+                    <th>delate</th>
+                </tr>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <!-- <script src="sweet.js"></script> -->
+</body>
+</html>
