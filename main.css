@@ -127,6 +127,7 @@ td {
 
     table .to-view {
         font-size: 7px;
+        padding: 1px;
     }
 
     #total {
