@@ -33,7 +33,7 @@ body {
         width: 0;
     }
     to {
-        width: 30%;
+        width: 20%;
     }
 }
 
@@ -134,6 +134,22 @@ td {
         background-color: #000;
         transform: scale(1);
     }
+    .head h2 {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 1px solid #a00d02;
+    white-space: nowrap;
+    animation: typing 4s steps(40, end) infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 40%;
+    }
+}
 }
 
 
