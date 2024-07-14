@@ -174,8 +174,8 @@ function searchDate(value) {
             <td>${dateProduct[i].discount}</td>
             <td>${dateProduct[i].total}</td>
             <td>${dateProduct[i].category}</td>
-            <td><button id= "update" onclick = "updateDate(${i})">update</button></td>
-            <td><button onclick="deleteData(${i})" id= "delete">delete</button></td>
+            <td><button class = "to-veiw" id= "update" onclick = "updateDate(${i})">update</button></td>
+            <td><button class = "to-veiw" onclick="deleteData(${i})" id= "delete">delete</button></td>
            
         </tr>
         `
