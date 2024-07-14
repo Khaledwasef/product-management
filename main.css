@@ -125,6 +125,10 @@ td {
         margin: auto;
     }
 
+    table button {
+        font-size: 7px;
+    }
+
     #total {
         margin-bottom: 10px;
         width: 100%;
