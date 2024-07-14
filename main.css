@@ -125,7 +125,7 @@ td {
         margin: auto;
     }
 
-    table button {
+    table .to-view {
         font-size: 7px;
     }
 
@@ -151,7 +151,7 @@ td {
         width: 0;
     }
     to {
-        width: 40%;
+        width: 100%;
     }
 }
 }
