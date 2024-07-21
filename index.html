@@ -1,43 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./main.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>product management</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.min.css">
 </head>
+
 <body>
-    <div class="crud">
-        <div class="head">
-            <h2>
-                hello,
-            </h2>
-            <p>product management system</p>
+
+    <div class="up" id="up">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="plastine">
+        <div class="background">
+            <div class="top"></div>
+            <div class="middle"></div>
+            <div class="triangle"></div>
         </div>
+    </div>
+    <!-- container -->
+    <div class="container">
+        <!-- head -->
+
+
+        <div class="head">
+            <h2>hello</h2>
+            <p>product management system</p>
+            <div id="toggle" title="dark/light mode">
+                <i class="indacetor"></i>
+            </div>
+        </div>
+
+
+        <!-- inputs -->
+
+
         <div class="inputs">
             <input type="text" id="title" placeholder="title">
-            <div class="price" id="prices">
-                <input onkeyup="getTotal()" type="number" name="" id="taxes" placeholder="taxes">
-                <input onkeyup="getTotal()"  type="number" name="" id="price" placeholder="price">
-                <input onkeyup="getTotal()" type="number" name="" id="ads" placeholder="ads">
-                <input onkeyup="getTotal()" type="number" name="" id="discount" placeholder="discount">
+
+
+            <div class="price">
+                <input onkeyup="calcTotal()" type="number" name="" id="price" placeholder="price">
+                <input onkeyup="calcTotal()" type="number" name="" id="taxes" placeholder="taxes">
+                <input onkeyup="calcTotal()" type="number" name="" id="ads" placeholder="Advertisements">
+                <input onkeyup="calcTotal()" type="number" name="" id="discount" placeholder="discount">
                 <small id="total"></small>
             </div>
-            <input type="number" placeholder="count" id="count">
-            <input type="text" placeholder="category" id="category">
+
+
+            <input type="number" name="" id="count" placeholder="count">
+            <input type="text" id="category" placeholder="category">
             <button id="submit">create</button>
         </div>
+
+
+        <!-- outputs -->
+
+
         <div class="outputs">
-            <div class="search">
-                <input type="text" name="" id="search" placeholder="search" onkeyup="searchDate(this.value)">
-                <div class="btn-search">
-                    <button id="searchTitle" onclick="searchProduct(this.id)">search by title</button>
-                    <button id="searchcategory" onclick="searchProduct(this.id)">search by category</button>
+            <!-- search block -->
+            <div class="searchBlock">
+                <input type="text" id="search" placeholder="search" onkeyup="searchDate(this.value)">
+                <div class="btnsearch">
+                    <button id="searchTilte" onclick="search(this.id)">search by title</button>
+                    <button id="searchCategory" onclick="search(this.id)">search by category</button>
                 </div>
-                <button id="deleteAll" onclick="deleteAll()" style="display: none;">delete all</button>
             </div>
+            <div class="deleteall" id="deleteall">
+                
+            </div>
+            <!-- table for product -->
             <table>
                 <tr>
                     <th>id</th>
@@ -48,17 +87,85 @@
                     <th>discount</th>
                     <th>total</th>
                     <th>category</th>
-                    <th class="to-view">update</th>
-                    <th class="to-view">delate</th>
+                    <th>update</th>
+                    <th>delete</th>
                 </tr>
                 <tbody id="tbody">
-
+                    
                 </tbody>
             </table>
         </div>
+        <footer>
+            <p>copywrite@<a href="https://khaledwasef.github.io/technoteam-/" target="_blank">techno team</a></p>
+        </footer>
     </div>
 
-    <script src="main.js"></script>
-    <!-- <script src="sweet.js"></script> -->
+    <!-- slider -->
+    <!-- modal for reciept -->
+    <!-- The Modal -->
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content active" id="modelContent">
+            <span class="close">&times;</span>
+            <div class="inputs-client">
+                <label for="clientName">client name : </label>
+                <input type="text" name="" id="clientName" autofocus>
+                <label for="clientAddress">client address : </label>
+                <input type="text" name="" id="clientAddress">
+                <label for="phone">phone : </label>
+                <input type="tel" name="" id="phone">
+            </div>
+            <div class="eventForSlider">
+                <button class="next" onclick="next()">next</button>
+            </div>
+            <!-- <button class="next" onclick="next()"><i class="fa fas-right"></i></button> -->
+            <h4>choose product</h4>
+            <input type="text" id="searchInModal" placeholder="search" onkeyup="searchDateInModal(this.value)">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>total price</th>
+                    <th>category</th>
+                    <th>add</th>
+                </tr>
+
+                <tbody id="tbodyForModal">
+
+                </tbody>
+            </table>
+            <div class="eventForSlider">
+                <button class="next" onclick="next()">next</button>
+            </div>
+        </div>
+
+        <!-- Modal content -->
+        <div class="modal-content2" id="modelContent2">
+           <div class="content-reciept" id="contentReciept">
+
+           </div>
+           <table id="tableForReciept">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>price</th>
+                <th>category</th>
+                <th>delete</th>
+            </tr>
+            <tbody id="tbodyForReciept"></tbody>
+           </table>
+            <div class="eventForSlider">
+                <button onclick="previous()">previous</button>
+                <button onclick="print()">print</button>
+                <button id="save" onclick="save()">save</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- js -->
+    <script src="./main.js"></script>
 </body>
+
 </html>
